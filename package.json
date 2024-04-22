@@ -1,0 +1,21 @@
+{
+  "name": "resp_api_node_ts_server",
+  "version": "1.0.0",
+  "description": "REST API with Express and TS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node src/index.ts"
+  },
+  "keywords": [
+    "Miguel",
+    "Cobian",
+    "Meraz"
+  ],
+  "author": "Miguel Cobian",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
