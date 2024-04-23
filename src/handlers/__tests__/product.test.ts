@@ -10,7 +10,7 @@ describe('POST /api/products', () => {
         expect(response.body.errors).toHaveLength(4);
 
         expect(response.status).not.toBe(201);
-        expect(response.body.errors).toHaveLength(2);
+        expect(response.body.errors).not.toHaveLength(2);
 
     });
 
@@ -25,7 +25,7 @@ describe('POST /api/products', () => {
         expect(response.body.errors).toHaveLength(1);
 
         expect(response.status).not.toBe(201);
-        expect(response.body.errors).toHaveLength(2);
+        expect(response.body.errors).not.toHaveLength(2);
 
     });
 
@@ -40,7 +40,7 @@ describe('POST /api/products', () => {
         expect(response.body.errors).toHaveLength(2);
 
         expect(response.status).not.toBe(201);
-        expect(response.body.errors).toHaveLength(4);
+        expect(response.body.errors).not.toHaveLength(4);
 
     });
 
