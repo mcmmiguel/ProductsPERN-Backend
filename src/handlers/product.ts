@@ -35,7 +35,7 @@ export const getProductById = async (req: Request, res: Response) => {
 export const createProduct = async (req: Request, res: Response) => {
     try {
         const product = await Product.create(req.body); //Create crea la instancia y lo almacena en la BD en un solo paso
-        res.json({ data: product });
+        res.status(201).json({ data: product });
     } catch (error) {
         console.log(error);
     }
