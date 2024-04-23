@@ -5,6 +5,9 @@
         "lib": [
             "ESNext"
         ],
+        "target": "ESNext",
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext",
         "strict": false,
         "sourceMap": true,
         "esModuleInterop": true,
