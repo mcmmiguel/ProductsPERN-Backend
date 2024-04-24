@@ -102,3 +102,33 @@ describe('GET /api/products/id', () => {
         expect(response.body).toHaveProperty('data');
     });
 });
+
+describe('PUT /api/products/id', () => {
+    test('should display validation error messages when updating a product', async () => {
+        const response = await request(server).put('/api/products/1').send({});
+
+        expect(response.status).toBe(400);
+        expect(response.body).toHaveProperty('errors');
+        expect(response.body.errors).toBeTruthy();
+        expect(response.body.errors).toHaveLength(5);
+
+        expect(response.status).not.toBe(200);
+        expect(response.body).not.toHaveProperty('data');
+    });
+
+    test('should validate that the price is grater than 0', async () => {
+        const response = await request(server).put('/api/products/1').send({
+            name: 'Xbox One Series X',
+            price: -10,
+            availability: true,
+        });
+
+        expect(response.status).toBe(400);
+        expect(response.body).toHaveProperty('errors');
+        expect(response.body.errors).toBeTruthy();
+        expect(response.body.errors).toHaveLength(1);
+
+        expect(response.status).not.toBe(200);
+        expect(response.body).not.toHaveProperty('data');
+    });
+});
