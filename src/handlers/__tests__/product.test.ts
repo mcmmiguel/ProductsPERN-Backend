@@ -1,5 +1,6 @@
 import request from 'supertest';
-import server from '../../server';
+import server, { connectDB } from '../../server';
+import db from '../../config/db';
 
 describe('POST /api/products', () => {
     test('should display validation errors', async () => {
