@@ -133,6 +133,20 @@ describe('PUT /api/products/id', () => {
     });
 });
 
+describe('PATCH /api/products/id', () => {
+    test('should should return a 404 response for non existant product', async () => {
+        const productID = 2000;
+
+        const response = await request(server).patch(`/api/products/${productID}`);
+
+        expect(response.status).toBe(404);
+        expect(response.body.error).toBe('Producto no encontrado');
+
+        expect(response.status).not.toBe(200);
+        expect(response.body).not.toHaveProperty('data');
+    });
+});
+
 describe('DELETE /api/products/id', () => {
     test('should check a valid ID', async () => {
         const response = await request(server).delete('/api/products/not-valid');
